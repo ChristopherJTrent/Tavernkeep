@@ -1,0 +1,13 @@
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\Tavernkeep.exe
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\obj\Debug\netcoreapp3.1\Tavernkeep.csprojAssemblyReference.cache
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\obj\Debug\netcoreapp3.1\Tavernkeep.AssemblyInfoInputs.cache
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\obj\Debug\netcoreapp3.1\Tavernkeep.AssemblyInfo.cs
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\DSharpPlus.dll
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\obj\Debug\netcoreapp3.1\Tavernkeep.csproj.CopyComplete
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\DSharpPlus.CommandsNext.dll
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\Emzi0767.Common.dll
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Chris\source\repos\Tavernkeep\Tavernkeep\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
