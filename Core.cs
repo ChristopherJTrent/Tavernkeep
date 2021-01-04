@@ -26,7 +26,7 @@ namespace Tavernkeep
 				TokenType = TokenType.Bot
 			});
 			var CommandsNextObj = discord.UseCommandsNext(new CommandsNextConfiguration() {
-				StringPrefixes = new[] {Config["CommandPrefix"]}
+				StringPrefixes = new[] { Config["CommandPrefix"] }
 			});
 
 			CommandsNextObj.RegisterCommands<Commands.ReactionRoleCommandModule>();

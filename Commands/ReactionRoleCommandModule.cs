@@ -41,7 +41,7 @@ namespace Tavernkeep.Commands
 
 			var ReactionRoleReactionSelectionMessage = await ctx.RespondAsync(null, false, builder.Build());
 			messagesForCleanup.Add(ReactionRoleReactionSelectionMessage);
-			var result = await ReactionRoleReactionSelectionMessage.WaitForReactionAsync(invoker);
+			var EmojiSelectionResult = await ReactionRoleReactionSelectionMessage.WaitForReactionAsync(invoker);
 
 			Dictionary<int, DiscordRole> OrderedRoles = new Dictionary<int, DiscordRole>();
 			StringBuilder RolesStringBuilder = new StringBuilder();
@@ -51,22 +51,33 @@ namespace Tavernkeep.Commands
 				RolesStringBuilder.Append($"`{lastRoleNumber}`: `{role.Value.Name}`\n");
 				OrderedRoles.Add(lastRoleNumber++, role.Value);
 			}
+
 			var RolesString = RolesStringBuilder.ToString();
-			while (!result.TimedOut) {
-				if (result.Result.Emoji.Equals(DiscordEmoji.FromName(ctx.Client, "stop_sign"))){
+			while (!EmojiSelectionResult.TimedOut) {
+				if (EmojiSelectionResult.Result.Emoji.Equals(DiscordEmoji.FromName(ctx.Client, "stop_sign"))){
 					foreach (var m in messagesForCleanup) {
 						await m.DeleteAsync("Tavernkeep Interaction Cleanup");
 					}
 					return;
 				}
-				if (!EmojiRolePairs.ContainsKey(result.Result.Emoji)) {
+				if (!EmojiRolePairs.ContainsKey(EmojiSelectionResult.Result.Emoji)) {
+
 					var roleRequestEmbed = new DiscordEmbedBuilder()
-						.WithTitle($"Role to assign for {result.Result.Emoji}")
+						.WithTitle($"Role to assign for {EmojiSelectionResult.Result.Emoji}")
 						.WithColor(DiscordColor.DarkGreen)
 						.WithDescription("Please respond with a role number from the following list:\n" + RolesString)
 						.Build();
+
 					var roleSelectionMessage = await ctx.RespondAsync(null, false, roleRequestEmbed);
-					
+					messagesForCleanup.Add(roleSelectionMessage);
+
+					var RoleSelectResponse = await roleSelectionMessage.GetNextMessageAsync();
+					if (!RoleSelectResponse.TimedOut) {
+						int.TryParse(RoleSelectResponse.Result.Content, out int selection);
+						if (OrderedRoles.ContainsKey(selection)) {
+							this.EmojiRolePairs.Add(EmojiSelectionResult.Result.Emoji, OrderedRoles[selection]);
+						}
+					}
 				}
 			}
 		}
